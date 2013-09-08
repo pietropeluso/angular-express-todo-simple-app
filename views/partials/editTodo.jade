@@ -2,10 +2,9 @@ h2 Edit todo
 div.row-fluid
 	label(for='text') Insert text here:
 	textarea(ng-model='form.text', cols='50', rows='5')
+
 div.row-fluid
-	label(for='date') Insert expiration date here:
-	input#datepicker(type="text" ng-model="form.date")
-div.row-fluid
+	label Set the new state:
 	select.span2(ng-model="form.state")
 		option(value="pending" ng-selected='isCorrectOption(form.state)') Pending
 		option(value="progress" ng-selected='isCorrectOption(form.state)') In progress
