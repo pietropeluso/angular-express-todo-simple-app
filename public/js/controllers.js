@@ -1,9 +1,19 @@
 
 function TodoCtrl($scope, $http, $location, $routeParams, $filter) {
-  $http.get('/api/todos').
+
+  // pagination variables
+  $scope.limit = 3;
+  $scope.offset = 0;
+  $scope.todos = [];
+  $scope.more = true;
+
+  $scope.getTodosWithRange = function () {
+    $http.get('/api/todos/'+$scope.offset+'/'+$scope.limit).
     success(function(data, status, headers, config) {
-      $scope.todos = data.todos;
+      $scope.todos = $scope.todos.concat(data.todos);
+      $scope.more = data.todos.length === $scope.limit;
     });
+  }
 
   $scope.selected = 'all';
   $scope.isShown = function(whichOne) {
@@ -20,9 +30,21 @@ function TodoCtrl($scope, $http, $location, $routeParams, $filter) {
   $scope.isCompleted = function (id) {
     return $scope.todos[id].state == 'completed';
   }
+
+  $scope.loadMore = function () {
+    $scope.offset += $scope.limit;
+    $scope.getTodosWithRange(); 
+  }
+
+  $scope.hasMore = function () {
+    return $scope.more;
+  }
+
+  $scope.getTodosWithRange();
 }
 
 function AddTodoCtrl($scope, $http, $location) {
+
   $scope.form = {};
   $scope.form.date = new Date();
   $scope.form.state = 'pending';
@@ -42,7 +64,7 @@ function ReadTodoCtrl($scope, $http, $routeParams) {
     });
 
   $scope.isCorrectOption = function(state) {
-    return $scope.todo.state == value;
+    return $scope.todo.state == state;
   }
 }
 

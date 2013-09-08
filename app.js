@@ -36,6 +36,7 @@ app.get('/partials/:name', routes.partials);
 // JSON API
 
 app.get('/api/todos', api.todos);
+app.get('/api/todos/:offset/:limit', api.todosWithPagination)
 app.get('/api/todo/:id', api.todo);
 app.post('/api/todo', api.addTodo);
 app.put('/api/todo/:id', api.editTodo);

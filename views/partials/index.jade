@@ -1,9 +1,10 @@
-p There are {{todos.length}} todos remaining
+label Search todos:
 form.form-search
 	div.input-append
 		input.input-large.search-query(type='text' ng-model='search')
 		button.btn.disabled Search
 
+label Show by todo state:
 select.span2(ng-model="selected")
 	option(value="all" selected) State (all)
 	option(value="pending") Pending
@@ -26,4 +27,7 @@ table.table
 				a.btn.btn-mini.btn-info.button-spacing(href='/readTodo/{{todo.id}}') Show
 				a.btn.btn-mini.btn-warning.button-spacing(href='/editTodo/{{todo.id}}' ng-show='!isCompleted(todo.id)') Edit 
 				a.btn.btn-mini.btn-danger.button-spacing(href='/deleteTodo/{{todo.id}}' ng-show='isCompleted(todo.id)') Delete
+
+div.row-fluid
+	button.btn.btn-small.btn-primary(ng-click='loadMore()' ng-show='hasMore()') Load More todos
 
