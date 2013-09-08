@@ -3,7 +3,7 @@ var data = {
 
   "todos": [
     {
-      'text': 'Vaccino per il cane',
+      'text': 'Vaccinations for the dog',
       'date': '2013-01-05T00:00:00',
       'state': 'pending'
     },
@@ -21,16 +21,6 @@ var data = {
       'text': 'Hotel booking',
       'date': '2013-04-05T00:00:00',
       'state': 'pending'
-    },
-    {
-      'text': 'Devo andare a fare la spesa',
-      'date': '2013-03-14T00:00:00',
-      'state': 'pending'
-    },
-    {
-      'text': 'Ma anche no!!',
-      'date': '2013-08-28T00:00:00',
-      'state': 'progress'
     },
     {
       'text': 'Learn Angular.JS and Express!!',
