@@ -1,0 +1,53 @@
+body {
+    background: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: grey;
+    width: 90%;
+}
+
+.container-fluid {
+    width: 90%;
+    padding: 2%;
+}
+
+a {
+  color: #00B7FF;
+}
+
+a:hover, a:visited {
+    text-decoration: none;
+}
+
+.done-true {
+    text-decoration: line-through;
+    color: red;
+}
+
+.container {
+    float: left;
+    background-color: rgb(233, 233, 233);
+    padding: 2%;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.nav>li>a:hover, 
+.nav>li>a:focus {
+	text-decoration: none;
+	background-color: #9AD8F7;
+	color: #fff;
+}
+
+.show-todo {
+    width: 412px;
+    height: 90px;
+}
+
+.button-spacing {
+    margin-right: 10px;
+}
+
+footer p {
+	text-align: center;
+}

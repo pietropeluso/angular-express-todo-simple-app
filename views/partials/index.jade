@@ -1,0 +1,29 @@
+p There are {{todos.length}} todos remaining
+form.form-search
+	div.input-append
+		input.input-large.search-query(type='text' ng-model='search')
+		button.btn.disabled Search
+
+select.span2(ng-model="selected")
+	option(value="all" selected) State (all)
+	option(value="pending") Pending
+	option(value="progress") In progress
+	option(value="completed") Completed
+		
+table.table
+	thead
+		tr
+			th 
+				a(href="" ng-click="predicate='text';direction=!direction") Todo
+			th
+				a(href="" ng-click="predicate='date';direction=!direction") Added
+			th Actions
+	tbody
+		tr(ng-repeat="todo in todos | filter:search | orderBy:predicate:direction" ng-class="{pending:'info', progress:'warning', completed:'success'}[todo.state]" ng-show="isShown(todo.state)")
+			td {{todo.text}}
+			td {{todo.date | date:'longDate'}}
+			td
+				a.btn.btn-mini.btn-info.button-spacing(href='/readTodo/{{todo.id}}') Show
+				a.btn.btn-mini.btn-warning.button-spacing(href='/editTodo/{{todo.id}}' ng-show='!isCompleted(todo.id)') Edit 
+				a.btn.btn-mini.btn-danger.button-spacing(href='/deleteTodo/{{todo.id}}' ng-show='isCompleted(todo.id)') Delete
+

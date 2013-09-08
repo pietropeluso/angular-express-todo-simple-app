@@ -1,0 +1,6 @@
+h2 Add new todo
+div.row-fluid
+	label(for='text') Insert text here:
+	textarea(ng-model='form.text', cols='50', rows='5')
+div.row-fluid
+	button.btn.btn-primary(ng-click='submitTodo()') Add
